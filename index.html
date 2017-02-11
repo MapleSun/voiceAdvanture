@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./scripts/speakClient.js"></script>
+    <script src="./scripts/annyang.min.js"></script>
+    <title>Home</title>
+<style>
+h3, h4, a {font-family: helvetica, sans-serif}
+</style>
+  </head>
+  <body>
+  	<ul>
+  		<li><a href="https://github.com/TalAter/annyang/">https://github.com/TalAter/annyang</a></li>
+  		<li><a href="https://github.com/kripken/speak.js/">https://github.com/kripken/speak.js</a></li>
+  	</ul>
+    <div id="audio"></div>
+
+  </body>
+  <script type="text/javascript">
+  //speak("hey girl, good morning, I am hungry");
+  console.log(1);
+	if (annyang) {
+    var repeatMe = function(parrot){
+      console.log(parrot);
+      speak(parrot);
+      // speak(repeat);
+      // annyang.addCallback('result', function (phrases) {
+      //
+      //  });
+     }
+	  // var sayThis = function() {
+	  // 	speak();
+	  // }
+
+	  // Let's define a command.
+	  var commands = {
+	    'repeat *parrot': repeatMe,
+	  };
+
+    // Turn on debugging for the console
+		annyang.debug();
+
+    annyang.addCommands(commands);
+	  // Initialize annyang with our commands
+	  //annyang.init();
+
+	  // Start listening.
+	  annyang.start();
+	}
+  </script>
+</html>
